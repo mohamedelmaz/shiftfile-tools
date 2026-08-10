@@ -11,6 +11,15 @@
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
+  function dataUrlToBlob(dataUrl) {
+    var parts = dataUrl.split(',');
+    var mime = parts[0].match(/:(.*?);/)[1];
+    var b64 = atob(parts[1]);
+    var arr = new Uint8Array(b64.length);
+    for (var i = 0; i < b64.length; i++) arr[i] = b64.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
   function init() {
     var input = document.getElementById('fileInput');
     var drop = document.getElementById('dropZone');
@@ -69,12 +78,13 @@
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
         ctx.drawImage(img, 0, 0, w, h);
-        canvas.toBlob(function (blob) {
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement('a'); a.href = url; a.download = 'resized.png'; a.click();
-          if (document.getElementById('newSize')) document.getElementById('newSize').textContent = w + '×' + h;
-          URL.revokeObjectURL(url);
-        }, 'image/png');
+        var dataUrl = canvas.toDataURL('image/png');
+        if (typeof signPngDataUrl === 'function') dataUrl = signPngDataUrl(dataUrl);
+        var blob = dataUrlToBlob(dataUrl);
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a'); a.href = url; a.download = 'resized.png'; a.click();
+        if (document.getElementById('newSize')) document.getElementById('newSize').textContent = w + '×' + h;
+        URL.revokeObjectURL(url);
       };
       img.src = reader.result;
     };

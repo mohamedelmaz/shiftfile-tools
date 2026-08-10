@@ -28,13 +28,13 @@
     var len = new Uint8Array(4);
     var dv = new DataView(len.buffer);
     dv.setUint32(0, data.length, false);
-    var crcBytes = new Uint8Array(4);
-    dv.setUint32(0, crc, false);
+  var crcBytes = new Uint8Array(4);
+  new DataView(crcBytes.buffer).setUint32(0, crc, false);
     var chunk = new Uint8Array(4 + typeBytes.length + data.length + 4);
     chunk.set(len, 0);
     chunk.set(typeBytes, 4);
     chunk.set(data, 8);
-    chunk.set(crcBytes, 8 + typeBytes.length + data.length);
+    chunk.set(crcBytes, 8 + data.length);
     return chunk;
   }
 

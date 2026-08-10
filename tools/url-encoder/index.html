@@ -67,6 +67,10 @@
           <textarea id="urlInput" class="form-control" rows="4" placeholder="https://example.com/search?q=hello world"></textarea>
         </div>
         <div class="form-group">
+          <label><input type="radio" name="urlAction" value="encode" checked> Encode</label><br>
+          <label><input type="radio" name="urlAction" value="decode"> Decode</label>
+        </div>
+        <div class="form-group">
           <label><input type="radio" name="urlMode" value="component" checked> Component (encodeURIComponent)</label><br>
           <label><input type="radio" name="urlMode" value="full"> Full URL (encodeURI)</label>
         </div>

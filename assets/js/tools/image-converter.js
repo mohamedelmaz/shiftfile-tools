@@ -17,6 +17,15 @@
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
+  function dataUrlToBlob(dataUrl) {
+    var parts = dataUrl.split(',');
+    var mime = parts[0].match(/:(.*?);/)[1];
+    var b64 = atob(parts[1]);
+    var arr = new Uint8Array(b64.length);
+    for (var i = 0; i < b64.length; i++) arr[i] = b64.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
   function init() {
     if (!detectWebP()) {
       var opt = document.querySelector('option[value="webp"]');
@@ -64,17 +73,17 @@
         canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
         var ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0);
-        var mime = fmt === 'jpg' ? 'image/jpeg' : fmt === 'webp' ? 'image/webp' : 'image/png';
-        canvas.toBlob(function (blob) {
-          var url = URL.createObjectURL(blob);
-          var a = document.createElement('a'); a.href = url; a.download = 'converted.' + fmt; a.click();
-          if (document.getElementById('newSize')) document.getElementById('newSize').textContent = formatSize(blob.size);
-          if (document.getElementById('savings')) {
-            var s = ((state.originalBlob.size - blob.size) / state.originalBlob.size * 100).toFixed(1);
-            document.getElementById('savings').textContent = s + '%';
-          }
-          URL.revokeObjectURL(url);
-        }, mime, q);
+        var dataUrl = canvas.toDataURL('image/png');
+        if (typeof signPngDataUrl === 'function' && fmt === 'png') dataUrl = signPngDataUrl(dataUrl);
+        var blob = dataUrlToBlob(dataUrl);
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a'); a.href = url; a.download = 'converted.' + fmt; a.click();
+        if (document.getElementById('newSize')) document.getElementById('newSize').textContent = formatSize(blob.size);
+        if (document.getElementById('savings')) {
+          var s = ((state.originalBlob.size - blob.size) / state.originalBlob.size * 100).toFixed(1);
+          document.getElementById('savings').textContent = s + '%';
+        }
+        URL.revokeObjectURL(url);
       };
       img.src = reader.result;
     };

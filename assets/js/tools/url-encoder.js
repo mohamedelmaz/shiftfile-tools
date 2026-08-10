@@ -3,14 +3,18 @@
 (function () {
   'use strict';
   var mode = 'component';
+  var action = 'encode';
 
   function init() {
     var input = document.getElementById('urlInput');
     var output = document.getElementById('urlOutput');
-    var modeRadios = document.querySelectorAll('input[name="urlMode"]');
 
-    modeRadios.forEach(function (r) {
+    document.querySelectorAll('input[name="urlMode"]').forEach(function (r) {
       r.addEventListener('change', function () { mode = r.value; process(); });
+    });
+
+    document.querySelectorAll('input[name="urlAction"]').forEach(function (r) {
+      r.addEventListener('change', function () { action = r.value; process(); });
     });
 
     input?.addEventListener('input', process);
@@ -26,8 +30,13 @@
     if (!input || !output) return;
     var val = input.value;
     try {
-      if (mode === 'component') output.value = encodeURIComponent(val);
-      else output.value = encodeURI(val);
+      if (action === 'encode') {
+        if (mode === 'component') output.value = encodeURIComponent(val);
+        else output.value = encodeURI(val);
+      } else {
+        if (mode === 'component') output.value = decodeURIComponent(val);
+        else output.value = decodeURI(val);
+      }
     } catch (e) { output.value = ''; }
   }
 

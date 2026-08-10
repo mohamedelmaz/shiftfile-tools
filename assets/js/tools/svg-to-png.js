@@ -41,11 +41,19 @@
       canvas.width = img.width * scale; canvas.height = img.height * scale;
       var ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob(function (blob) {
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a'); a.href = url; a.download = 'svg.png'; a.click();
-        URL.revokeObjectURL(url);
-      }, 'image/png');
+      var pngDataUrl = canvas.toDataURL('image/png');
+      if (typeof signPngDataUrl === 'function') pngDataUrl = signPngDataUrl(pngDataUrl);
+      var blob = (function (dataUrl) {
+        var parts = dataUrl.split(',');
+        var mime = parts[0].match(/:(.*?);/)[1];
+        var b64 = atob(parts[1]);
+        var arr = new Uint8Array(b64.length);
+        for (var i = 0; i < b64.length; i++) arr[i] = b64.charCodeAt(i);
+        return new Blob([arr], { type: mime });
+      })(pngDataUrl);
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a'); a.href = url; a.download = 'svg.png'; a.click();
+      URL.revokeObjectURL(url);
     };
     img.src = dataUrl;
   });
