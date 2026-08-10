@@ -11,6 +11,15 @@
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
+  function dataUrlToBlob(dataUrl) {
+    var parts = dataUrl.split(',');
+    var mime = parts[0].match(/:(.*?);/)[1];
+    var b64 = atob(parts[1]);
+    var arr = new Uint8Array(b64.length);
+    for (var i = 0; i < b64.length; i++) arr[i] = b64.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
   function init() {
     var input = document.getElementById('fileInput');
     var drop = document.getElementById('dropZone');
@@ -56,13 +65,24 @@
           canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
           var ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0);
-          var mime = fmt === 'jpg' ? 'image/jpeg' : 'image/webp';
-          canvas.toBlob(function (blob) {
+          var mime = fmt === 'jpg' ? 'image/jpeg' : 'image/png';
+          if (fmt === 'webp') mime = 'image/webp';
+          if (fmt === 'png') {
+            var dataUrl = canvas.toDataURL('image/png');
+            if (typeof signPngDataUrl === 'function') dataUrl = signPngDataUrl(dataUrl);
+            var blob = dataUrlToBlob(dataUrl);
             results[idx] = { blob: blob, name: f.name.replace(/\.[^.]+$/, '') + '.' + fmt, orig: f.size };
             totalNew += blob.size;
             pending--;
             if (pending === 0) finish(results, totalOrig, totalNew);
-          }, mime, q);
+          } else {
+            canvas.toBlob(function (blob) {
+              results[idx] = { blob: blob, name: f.name.replace(/\.[^.]+$/, '') + '.' + fmt, orig: f.size };
+              totalNew += blob.size;
+              pending--;
+              if (pending === 0) finish(results, totalOrig, totalNew);
+            }, mime, q);
+          }
         };
         img.src = reader.result;
       };
