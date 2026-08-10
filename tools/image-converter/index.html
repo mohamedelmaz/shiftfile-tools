@@ -31,34 +31,7 @@
 </head>
 <body>
   <!-- © 2026 ShiftFile Tools — https://shiftfile.tools — All rights reserved. -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="logo" aria-label="ShiftFile Tools Home">
-        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#10b981"/><path d="M16 8L24 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8L8 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        ShiftFile Tools
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <div class="dropdown">
-          <button class="dropdown-toggle" aria-expanded="false">Tools</button>
-          <div class="dropdown-menu">
-            <div class="dropdown-group">
-              <div class="dropdown-label">Images</div>
-              <a href="/tools/image-converter/">Image Converter</a><a href="/tools/image-compressor/">Image Compressor</a><a href="/tools/image-resizer/">Image Resizer</a><a href="/tools/svg-to-png/">SVG to PNG</a><a href="/tools/images-to-pdf/">Images to PDF</a>
-            </div>
-            <div class="dropdown-group">
-              <div class="dropdown-label">Data &amp; Text</div>
-              <a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/markdown-html-converter/">Markdown ↔ HTML</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/url-encoder/">URL Encoder</a><a href="/tools/html-entities/">HTML Entities</a><a href="/tools/case-converter/">Case Converter</a><a href="/tools/slug-generator/">Slug Generator</a><a href="/tools/color-converter/">Color Converter</a><a href="/tools/number-base-converter/">Number Base</a>
-            </div>
-          </div>
-        </div>
-        <a href="/guides/">Guides</a><a href="/developers/">Developers</a>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-      </nav>
-    </div>
-    <div class="dropdown-overlay" aria-hidden="true"></div>
-  </header>
-
-  <main>
+  <div id="site-header"></div><main>
     <section class="hero" style="padding: 40px 0;">
       <div class="container">
         <h1>Free Image Converter</h1>
@@ -117,18 +90,9 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-col"><h4>Tools</h4><a href="/tools/image-converter/">Image Converter</a><a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/number-base-converter/">Number Base</a></div>
-        <div class="footer-col"><h4>Resources</h4><a href="/guides/">Guides</a><a href="/developers/">Developers</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
-        <div class="footer-col"><h4>Legal</h4><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></div>
-      </div>
-      <div class="footer-bottom"><p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p><p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p></div>
-    </div>
-  </footer>
-  <script src="/assets/js/app.js"></script>
-  <script src="/assets/js/tools/png-signer.js"></script>
+  <div id="site-footer"></div>
+  <script src="/assets/js/components.js"></script>
+  <script src="/assets/js/utils/png-signer.js"></script>
   <script src="/assets/js/tools/image-converter.js"></script>
 </body>
 </html>

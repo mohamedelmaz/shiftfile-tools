@@ -5,7 +5,7 @@ var urlsToCache = [
   '/',
   '/index.html',
   '/assets/css/style.css',
-  '/assets/js/app.js',
+  '/assets/js/components.js',
   '/assets/img/logo.svg'
 ];
 
