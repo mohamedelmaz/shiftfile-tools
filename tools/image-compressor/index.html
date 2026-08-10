@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Image Compressor — Reduce Size Without Losing Quality | ShiftFile Tools</title>
+  <meta name="description" content="Compress JPG, PNG, and WebP images in batch. See savings percentage and download all at once. 100% private.">
+  <link rel="canonical" href="https://shiftfile.tools/tools/image-compressor/">
+  <meta property="og:title" content="Free Image Compressor — Reduce Size Without Losing Quality | ShiftFile Tools">
+  <meta property="og:description" content="Compress images in batch. See savings percentage and download all at once.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shiftfile.tools/tools/image-compressor/">
+  <meta property="og:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Image Compressor">
+  <meta name="twitter:description" content="Compress images in batch. See savings percentage.">
+  <meta name="twitter:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Image Compressor",
+    "applicationCategory": "Utility",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Compress JPG, PNG, and WebP images in batch."
+  }
+  </script>
+</head>
+<body>
+  <!-- © 2026 ShiftFile Tools — https://shiftfile.tools — All rights reserved. -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="ShiftFile Tools Home">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#10b981"/><path d="M16 8L24 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8L8 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ShiftFile Tools
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Tools</button>
+          <div class="dropdown-menu">
+            <div class="dropdown-group">
+              <div class="dropdown-label">Images</div>
+              <a href="/tools/image-converter/">Image Converter</a><a href="/tools/image-compressor/">Image Compressor</a><a href="/tools/image-resizer/">Image Resizer</a><a href="/tools/svg-to-png/">SVG to PNG</a><a href="/tools/images-to-pdf/">Images to PDF</a>
+            </div>
+            <div class="dropdown-group">
+              <div class="dropdown-label">Data &amp; Text</div>
+              <a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/markdown-html-converter/">Markdown ↔ HTML</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/url-encoder/">URL Encoder</a><a href="/tools/html-entities/">HTML Entities</a><a href="/tools/case-converter/">Case Converter</a><a href="/tools/slug-generator/">Slug Generator</a><a href="/tools/color-converter/">Color Converter</a><a href="/tools/number-base-converter/">Number Base</a>
+            </div>
+          </div>
+        </div>
+        <a href="/guides/">Guides</a><a href="/developers/">Developers</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+    <div class="dropdown-overlay" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 40px 0;">
+      <div class="container">
+        <h1>Free Image Compressor</h1>
+        <p>Compress JPG, PNG, and WebP images in batch. See savings percentage and download all at once. 100% private.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="privacy-bar">🔒 Your files never leave your device</div>
+        <div class="tool-area" id="dropZone">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drag &amp; drop images here, or click to browse (multiple files supported)</p>
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
+        </div>
+        <div class="form-group">
+          <label for="format">Output Format</label>
+          <select id="format" class="form-control"><option value="webp">WebP</option><option value="jpg">JPG</option></select>
+        </div>
+        <div class="form-group">
+          <label for="quality">Quality: <span id="qualityVal">80</span>%</label>
+          <input type="range" id="quality" min="1" max="100" value="80" class="form-control">
+        </div>
+        <button id="compressBtn" class="btn btn-primary">Compress All</button>
+        <div id="fileList" class="preview-grid"></div>
+        <div class="tool-result hidden" id="result"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--sf-surface);">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <div class="bento-grid">
+          <div class="tool-card"><h3>1. Upload</h3><p>Select one or more images from your device.</p></div>
+          <div class="tool-card"><h3>2. Adjust</h3><p>Pick the output format and drag the quality slider.</p></div>
+          <div class="tool-card"><h3>3. Download</h3><p>See savings and download compressed images individually or all at once.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <details class="faq"><summary>Which formats are supported?</summary><div class="faq-body">We support JPG, PNG, and WebP input. Output can be WebP or JPG for best compression results.</div></details>
+        <details class="faq"><summary>Does batch compression affect quality?</summary><div class="faq-body">You control the quality slider. Lower quality means smaller files but more compression artifacts.</div></details>
+        <details class="faq"><summary>Is there a limit on the number of images?</summary><div class="faq-body">No hard limit. Performance depends on your browser and device memory.</div></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col"><h4>Tools</h4><a href="/tools/image-converter/">Image Converter</a><a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/number-base-converter/">Number Base</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="/guides/">Guides</a><a href="/developers/">Developers</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></div>
+      </div>
+      <div class="footer-bottom"><p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p><p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/tools/png-signer.js"></script>
+  <script src="/assets/js/tools/image-compressor.js"></script>
+</body>
+</html>

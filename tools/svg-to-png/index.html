@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free SVG to PNG Converter — Export at 1x 2x 4x | ShiftFile Tools</title>
+  <meta name="description" content="Convert SVG files to PNG in your browser. Choose 1x, 2x, or 4x scale factor for crisp exports.">
+  <link rel="canonical" href="https://shiftfile.tools/tools/svg-to-png/">
+  <meta property="og:title" content="Free SVG to PNG Converter — Export at 1x 2x 4x | ShiftFile Tools">
+  <meta property="og:description" content="Convert SVG to PNG with 1x, 2x, or 4x scale factor.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shiftfile.tools/tools/svg-to-png/">
+  <meta property="og:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free SVG to PNG Converter">
+  <meta name="twitter:description" content="Convert SVG to PNG with scale factor.">
+  <meta name="twitter:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SVG to PNG",
+    "applicationCategory": "Utility",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Convert SVG files to PNG with scale factor."
+  }
+  </script>
+</head>
+<body>
+  <!-- © 2026 ShiftFile Tools — https://shiftfile.tools — All rights reserved. -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="ShiftFile Tools Home">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#10b981"/><path d="M16 8L24 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8L8 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ShiftFile Tools
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Tools</button>
+          <div class="dropdown-menu">
+            <div class="dropdown-group"><div class="dropdown-label">Images</div><a href="/tools/image-converter/">Image Converter</a><a href="/tools/image-compressor/">Image Compressor</a><a href="/tools/image-resizer/">Image Resizer</a><a href="/tools/svg-to-png/">SVG to PNG</a><a href="/tools/images-to-pdf/">Images to PDF</a></div>
+            <div class="dropdown-group"><div class="dropdown-label">Data &amp; Text</div><a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/markdown-html-converter/">Markdown ↔ HTML</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/url-encoder/">URL Encoder</a><a href="/tools/html-entities/">HTML Entities</a><a href="/tools/case-converter/">Case Converter</a><a href="/tools/slug-generator/">Slug Generator</a><a href="/tools/color-converter/">Color Converter</a><a href="/tools/number-base-converter/">Number Base</a></div>
+          </div>
+        </div>
+        <a href="/guides/">Guides</a><a href="/developers/">Developers</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+    <div class="dropdown-overlay" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 40px 0;">
+      <div class="container">
+        <h1>Free SVG to PNG Converter</h1>
+        <p>Convert SVG files to PNG in your browser. Choose 1x, 2x, or 4x scale factor for crisp exports.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="privacy-bar">🔒 Your files never leave your device</div>
+        <div class="tool-area" id="dropZone">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drag &amp; drop an SVG here, or click to browse</p>
+          <input type="file" id="fileInput" accept=".svg" class="hidden">
+        </div>
+        <div class="form-group">
+          <label for="scale">Scale Factor</label>
+          <select id="scale" class="form-control"><option value="1">1x</option><option value="2">2x</option><option value="4">4x</option></select>
+        </div>
+        <button id="convertBtn" class="btn btn-primary">Convert &amp; Download PNG</button>
+        <div id="preview" class="preview-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--sf-surface);">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <div class="bento-grid">
+          <div class="tool-card"><h3>1. Upload</h3><p>Select an SVG file from your device.</p></div>
+          <div class="tool-card"><h3>2. Scale</h3><p>Choose 1x, 2x, or 4x for retina-ready exports.</p></div>
+          <div class="tool-card"><h3>3. Download</h3><p>Download the PNG instantly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <details class="faq"><summary>Why choose 2x or 4x scale?</summary><div class="faq-body">Higher scale factors produce larger PNGs suitable for high-DPI screens and print.</div></details>
+        <details class="faq"><summary>Does this support embedded fonts?</summary><div class="faq-body">Fonts referenced in SVGs may not render if they are not installed locally. Convert paths to outlines for best results.</div></details>
+        <details class="faq"><summary>Are my files uploaded?</summary><div class="faq-body">No. Conversion happens entirely in your browser.</div></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col"><h4>Tools</h4><a href="/tools/image-converter/">Image Converter</a><a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/number-base-converter/">Number Base</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="/guides/">Guides</a><a href="/developers/">Developers</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></div>
+      </div>
+      <div class="footer-bottom"><p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p><p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/tools/png-signer.js"></script>
+  <script src="/assets/js/tools/svg-to-png.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Base64 Converter — Text and File Encoding | ShiftFile Tools</title>
+  <meta name="description" content="Encode and decode text or files to and from Base64 safely with Unicode support.">
+  <link rel="canonical" href="https://shiftfile.tools/tools/base64-converter/">
+  <meta property="og:title" content="Free Base64 Converter — Text and File Encoding | ShiftFile Tools">
+  <meta property="og:description" content="Encode and decode text or files to and from Base64.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shiftfile.tools/tools/base64-converter/">
+  <meta property="og:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Base64 Converter">
+  <meta name="twitter:description" content="Encode and decode text or files to and from Base64.">
+  <meta name="twitter:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Base64 Converter",
+    "applicationCategory": "Utility",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Encode and decode text or files to and from Base64."
+  }
+  </script>
+</head>
+<body>
+  <!-- © 2026 ShiftFile Tools — https://shiftfile.tools — All rights reserved. -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="ShiftFile Tools Home">
+        <svg viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#10b981"/><path d="M16 8L24 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 8L8 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        ShiftFile Tools
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Tools</button>
+          <div class="dropdown-menu">
+            <div class="dropdown-group"><div class="dropdown-label">Images</div><a href="/tools/image-converter/">Image Converter</a><a href="/tools/image-compressor/">Image Compressor</a><a href="/tools/image-resizer/">Image Resizer</a><a href="/tools/svg-to-png/">SVG to PNG</a><a href="/tools/images-to-pdf/">Images to PDF</a></div>
+            <div class="dropdown-group"><div class="dropdown-label">Data &amp; Text</div><a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/markdown-html-converter/">Markdown ↔ HTML</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/url-encoder/">URL Encoder</a><a href="/tools/html-entities/">HTML Entities</a><a href="/tools/case-converter/">Case Converter</a><a href="/tools/slug-generator/">Slug Generator</a><a href="/tools/color-converter/">Color Converter</a><a href="/tools/number-base-converter/">Number Base</a></div>
+          </div>
+        </div>
+        <a href="/guides/">Guides</a><a href="/developers/">Developers</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+    <div class="dropdown-overlay" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding: 40px 0;">
+      <div class="container">
+        <h1>Free Base64 Converter</h1>
+        <p>Encode and decode text or files to and from Base64 safely with Unicode support.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="privacy-bar">🔒 Your files never leave your device</div>
+        <div class="form-group">
+          <label for="textInput">Text</label>
+          <textarea id="textInput" class="form-control" rows="4" placeholder="Hello world"></textarea>
+        </div>
+        <button id="textToB64Btn" class="btn btn-primary">Text → Base64</button>
+        <div class="form-group">
+          <label for="b64Input">Base64</label>
+          <textarea id="b64Input" class="form-control" rows="4" placeholder="SGVsbG8gd29ybGQ="></textarea>
+        </div>
+        <button id="b64ToTextBtn" class="btn btn-secondary">Base64 → Text</button>
+        <div class="tool-area" id="dropZone" style="margin-top:24px;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drag &amp; drop a file to encode to Base64</p>
+          <input type="file" id="fileInput" class="hidden">
+          <p id="fileName" style="margin-top:8px;font-size:.85rem;"></p>
+        </div>
+        <button id="downloadBtn" class="btn btn-secondary mt-24">Download Decoded File</button>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--sf-surface);">
+      <div class="container">
+        <h2 class="section-title">How it works</h2>
+        <div class="bento-grid">
+          <div class="tool-card"><h3>1. Input</h3><p>Enter text or drop a file.</p></div>
+          <div class="tool-card"><h3>2. Convert</h3><p>Use the buttons to encode or decode safely.</p></div>
+          <div class="tool-card"><h3>3. Copy or download</h3><p>Copy the Base64 string or download the decoded file.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <details class="faq"><summary>Is Unicode supported?</summary><div class="faq-body">Yes, we use TextEncoder and TextDecoder to handle Unicode safely.</div></details>
+        <details class="faq"><summary>Can I decode any Base64 string?</summary><div class="faq-body">Any valid Base64 string can be decoded. Invalid strings will return an error.</div></details>
+        <details class="faq"><summary>Are files uploaded?</summary><div class="faq-body">No. File encoding happens locally in your browser.</div></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col"><h4>Tools</h4><a href="/tools/image-converter/">Image Converter</a><a href="/tools/json-csv-converter/">JSON ↔ CSV</a><a href="/tools/base64-converter/">Base64</a><a href="/tools/number-base-converter/">Number Base</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="/guides/">Guides</a><a href="/developers/">Developers</a><a href="/about/">About</a><a href="/contact/">Contact</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy-policy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></div>
+      </div>
+      <div class="footer-bottom"><p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p><p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p></div>
+    </div>
+  </footer>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/tools/base64-converter.js"></script>
+</body>
+</html>

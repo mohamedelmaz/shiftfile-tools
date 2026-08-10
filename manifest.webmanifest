@@ -1,0 +1,21 @@
+{
+  "name": "ShiftFile Tools",
+  "short_name": "ShiftFile",
+  "description": "Free, private, in-browser file conversion tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/assets/img/logo.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/img/logo-new.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}

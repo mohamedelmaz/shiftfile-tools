@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShiftFile Tools — Free, Private, In-Browser File Conversion</title>
+  <meta name="description" content="Free in-browser file conversion tools. Convert images, JSON, CSV, Markdown, Base64, URLs and more. 100% private — your files never leave your device.">
+  <link rel="canonical" href="https://shiftfile.tools/">
+  <meta property="og:title" content="ShiftFile Tools — Your files, your device, your privacy.">
+  <meta property="og:description" content="14 free in-browser file conversion tools. No uploads, no registration, no watermarks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shiftfile.tools/">
+  <meta property="og:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ShiftFile Tools — Free In-Browser File Conversion">
+  <meta name="twitter:description" content="14 free in-browser file conversion tools. 100% private.">
+  <meta name="twitter:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ShiftFile Tools",
+    "url": "https://shiftfile.tools/",
+    "description": "Free in-browser file conversion tools.",
+    "potentialAction": { "@type": "SearchAction", "target": "https://shiftfile.tools/tools/{search_term_string}", "query-input": "required name=search_term_string" }
+  }
+  </script>
+</head>
+<body>
+  <!-- © 2026 ShiftFile Tools — https://shiftfile.tools — All rights reserved. -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="ShiftFile Tools Home">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#10b981"/>
+          <path d="M16 8L24 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 8L8 16L16 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        ShiftFile Tools
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="dropdown">
+          <button class="dropdown-toggle" aria-expanded="false">Tools</button>
+          <div class="dropdown-menu">
+            <div class="dropdown-group">
+              <div class="dropdown-label">Images</div>
+              <a href="/tools/image-converter/">Image Converter</a>
+              <a href="/tools/image-compressor/">Image Compressor</a>
+              <a href="/tools/image-resizer/">Image Resizer</a>
+              <a href="/tools/svg-to-png/">SVG to PNG</a>
+              <a href="/tools/images-to-pdf/">Images to PDF</a>
+            </div>
+            <div class="dropdown-group">
+              <div class="dropdown-label">Data &amp; Text</div>
+              <a href="/tools/json-csv-converter/">JSON ↔ CSV</a>
+              <a href="/tools/markdown-html-converter/">Markdown ↔ HTML</a>
+              <a href="/tools/base64-converter/">Base64 Converter</a>
+              <a href="/tools/url-encoder/">URL Encoder</a>
+              <a href="/tools/html-entities/">HTML Entities</a>
+              <a href="/tools/case-converter/">Case Converter</a>
+              <a href="/tools/slug-generator/">Slug Generator</a>
+              <a href="/tools/color-converter/">Color Converter</a>
+              <a href="/tools/number-base-converter/">Number Base Converter</a>
+            </div>
+          </div>
+        </div>
+        <a href="/guides/">Guides</a>
+        <a href="/developers/">Developers</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+    <div class="dropdown-overlay" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">⚡ Works offline after your first visit</div>
+        <h1>File conversion that never leaves your device.</h1>
+        <p>Free, private, offline-capable tools for images, data, text, and developers. No uploads, no registration, no watermarks.</p>
+        <div class="search-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="search" id="toolSearch" placeholder="Search tools..." aria-label="Search tools">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="bento-grid">
+          <a href="/tools/image-converter/" class="tool-card">
+            <h3>Image Converter</h3>
+            <p>Convert JPG, PNG, and WebP with quality control and instant preview.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/image-compressor/" class="tool-card">
+            <h3>Image Compressor</h3>
+            <p>Compress multiple images at once with savings percentage and batch download.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/image-resizer/" class="tool-card">
+            <h3>Image Resizer</h3>
+            <p>Resize images by pixels or percentage with locked aspect ratio and high-quality smoothing.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/svg-to-png/" class="tool-card">
+            <h3>SVG to PNG</h3>
+            <p>Convert SVG files to PNG at 1x, 2x, or 4x scale factor.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/images-to-pdf/" class="tool-card">
+            <h3>Images to PDF</h3>
+            <p>Merge multiple images into a single A4 PDF document.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/json-csv-converter/" class="tool-card">
+            <h3>JSON ↔ CSV</h3>
+            <p>Convert between JSON and CSV with proper escaping and table preview.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/markdown-html-converter/" class="tool-card">
+            <h3>Markdown ↔ HTML</h3>
+            <p>Pure Markdown to HTML converter and reverse, no libraries required.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/base64-converter/" class="tool-card">
+            <h3>Base64 Converter</h3>
+            <p>Encode and decode text or files to and from Base64 safely.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/url-encoder/" class="tool-card">
+            <h3>URL Encoder</h3>
+            <p>Encode and decode URL components with component and full URL modes.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/html-entities/" class="tool-card">
+            <h3>HTML Entities</h3>
+            <p>Escape and unescape the five essential HTML entities and numeric references.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/case-converter/" class="tool-card">
+            <h3>Case Converter</h3>
+            <p>Convert text between UPPER, lower, Title, Sentence, camel, Pascal, snake, and kebab cases.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/slug-generator/" class="tool-card">
+            <h3>Slug Generator</h3>
+            <p>Generate clean URL slugs with Latin transliteration and configurable max length.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/color-converter/" class="tool-card">
+            <h3>Color Converter</h3>
+            <p>Convert between HEX, RGB, and HSL with live color preview and copy buttons.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+          <a href="/tools/number-base-converter/" class="tool-card">
+            <h3>Number Base Converter</h3>
+            <p>Convert numbers between Binary, Octal, Decimal, and Hex with real-time validation.</p>
+            <span class="card-link">Open tool →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--sf-surface);">
+      <div class="container">
+        <h2 class="section-title text-center">Why ShiftFile?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Feature</th><th>ShiftFile Tools</th><th>Cloud Converters</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Registration</strong></td><td>Not required</td><td>Usually required</td></tr>
+              <tr><td><strong>Privacy</strong></td><td>100% local</td><td>Files uploaded to servers</td></tr>
+              <tr><td><strong>Limits</strong></td><td>Unlimited</td><td>Rate limits / queues</td></tr>
+              <tr><td><strong>Offline</strong></td><td>Works offline after first visit</td><td>No</td></tr>
+              <tr><td><strong>Speed</strong></td><td>Instant, no upload latency</td><td>Depends on upload speed</td></tr>
+              <tr><td><strong>Watermarks</strong></td><td>None</td><td>Often included</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title text-center">Guides</h2>
+        <p class="section-desc text-center" style="margin:0 auto 40px;">Learn the best practices for file conversion, compression, and data formatting.</p>
+        <div class="bento-grid">
+          <a href="/guides/convert-images-to-webp/" class="tool-card">
+            <h3>How to Convert Images to WebP for Faster Websites (2026)</h3>
+            <p>Step-by-step guide to modern image formats and performance gains.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/compress-images-without-losing-quality/" class="tool-card">
+            <h3>Compress Images Without Losing Quality: The Complete Guide</h3>
+            <p>Balance between file size and visual fidelity with proven techniques.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/json-to-csv-explained/" class="tool-card">
+            <h3>JSON to CSV Conversion: Everything You Need to Know</h3>
+            <p>Understand the differences, use cases, and pitfalls of JSON and CSV.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/markdown-vs-html/" class="tool-card">
+            <h3>Markdown vs HTML: When to Use Each</h3>
+            <p>Compare the two most popular markup languages and pick the right one.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+          <a href="/guides/base64-explained/" class="tool-card">
+            <h3>Base64 Encoding Explained: Use Cases and Safety</h3>
+            <p>What Base64 is, when to use it, and common security considerations.</p>
+            <span class="card-link">Read guide →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--sf-primary-soft);">
+      <div class="container text-center">
+        <h2 class="section-title">Privacy-first by design</h2>
+        <p class="section-desc" style="margin:0 auto 32px;">Every tool runs entirely in your browser. We never see, store, or transmit your files. No accounts, no cookies for tracking, no telemetry.</p>
+        <a href="/privacy-policy/" class="btn btn-primary">Read our Privacy Policy</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title text-center">Who is this for?</h2>
+        <div class="bento-grid">
+          <div class="tool-card">
+            <h3>Designers</h3>
+            <p>Resize, compress, and convert assets without opening heavy desktop software.</p>
+          </div>
+          <div class="tool-card">
+            <h3>Developers</h3>
+            <p>Use the ShiftFile SDK to integrate conversion logic into your own apps with zero server costs.</p>
+          </div>
+          <div class="tool-card">
+            <h3>Marketers</h3>
+            <p>Prepare images, generate slugs, and encode URLs for campaigns in seconds.</p>
+          </div>
+          <div class="tool-card">
+            <h3>Students</h3>
+            <p>Convert lecture notes, merge PDFs, and format data without installing anything.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="/tools/image-converter/">Image Converter</a>
+          <a href="/tools/json-csv-converter/">JSON ↔ CSV</a>
+          <a href="/tools/base64-converter/">Base64</a>
+          <a href="/tools/number-base-converter/">Number Base</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="/guides/">Guides</a>
+          <a href="/developers/">Developers</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy-policy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p>
+        <p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
