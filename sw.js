@@ -1,17 +1,34 @@
 /* ShiftFile Tools © 2026 — https://shiftfile.tools — All rights reserved. */
 
 var CACHE_NAME = 'shiftfile-tools-v1';
-var urlsToCache = [
-  '/',
-  '/index.html',
-  '/assets/css/style.css',
-  '/assets/js/components.js',
-  '/assets/img/logo.svg'
-];
+
+function getBasePath() {
+  var path = self.location.pathname;
+  var segments = path.split('/').filter(Boolean);
+  var firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms'];
+  var baseSegments = 0;
+  if (segments.length >= 2 && firstLevel.indexOf(segments[1]) !== -1) {
+    baseSegments = 1;
+  }
+  var depth = segments.length - baseSegments;
+  if (depth <= 0) return './';
+  return '../'.repeat(depth);
+}
+
+function getCacheUrls() {
+  var base = getBasePath();
+  return [
+    base,
+    base + 'index.html',
+    base + 'assets/css/style.css',
+    base + 'assets/js/components.js',
+    base + 'assets/img/logo.svg'
+  ];
+}
 
 self.addEventListener('install', function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) { return cache.addAll(urlsToCache); })
+    caches.open(CACHE_NAME).then(function (cache) { return cache.addAll(getCacheUrls()); })
   );
   self.skipWaiting();
 });
@@ -21,7 +38,8 @@ self.addEventListener('fetch', function (event) {
     caches.match(event.request).then(function (response) {
       return response || fetch(event.request).catch(function () {
         if (event.request.mode === 'navigate') {
-          return caches.match('/index.html');
+          var base = getBasePath();
+          return caches.match(base + 'index.html');
         }
       });
     })
