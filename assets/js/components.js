@@ -120,11 +120,43 @@
     closeMobileNav();
   }
 
+  function getRelPrefix() {
+    const path = window.location.pathname;
+    const segments = path.split('/').filter(Boolean);
+    const firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms'];
+    let baseSegments = 0;
+    if (segments.length >= 2 && firstLevel.indexOf(segments[1]) !== -1) {
+      baseSegments = 1;
+    }
+    const depth = segments.length - baseSegments;
+    if (depth <= 0) return './';
+    return '../'.repeat(depth);
+  }
+
+  function fixInjectedLinks(container, rel) {
+    container.querySelectorAll('a[href^="/"]').forEach(function (a) {
+      a.setAttribute('href', rel + a.getAttribute('href').slice(1));
+    });
+    container.querySelectorAll('script[src^="/"]').forEach(function (s) {
+      s.setAttribute('src', rel + s.getAttribute('src').slice(1));
+    });
+    container.querySelectorAll('link[href^="/"]').forEach(function (l) {
+      l.setAttribute('href', rel + l.getAttribute('href').slice(1));
+    });
+  }
+
   function initComponents() {
+    const rel = getRelPrefix();
     const headerEl = document.getElementById('site-header');
     const footerEl = document.getElementById('site-footer');
-    if (headerEl) headerEl.innerHTML = HEADER;
-    if (footerEl) footerEl.innerHTML = FOOTER;
+    if (headerEl) {
+      headerEl.innerHTML = HEADER;
+      fixInjectedLinks(headerEl, rel);
+    }
+    if (footerEl) {
+      footerEl.innerHTML = FOOTER;
+      fixInjectedLinks(footerEl, rel);
+    }
 
     applyTheme(getTheme());
 

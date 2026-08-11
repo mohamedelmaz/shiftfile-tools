@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <base href="/shiftfile-tools/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Base64 Encoding Explained: Use Cases and Safety — ShiftFile Tools</title>
   <meta name="description" content="What Base64 is, when to use it, and common security considerations. A complete guide to Base64 encoding.">
   <link rel="canonical" href="https://shiftfile.tools/guides/base64-explained/">
@@ -13,7 +12,7 @@
   <meta property="og:url" content="https://shiftfile.tools/guides/base64-explained/">
   <meta property="og:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
   <meta property="article:published_time" content="2026-08-10">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,7 +50,7 @@
 
         <h2>Unicode and Base64</h2>
         <p>Standard Base64 works on bytes, not characters. When encoding Unicode text, you must first convert the string to a byte array using UTF-8. This ensures that emojis and non-Latin characters are handled correctly. Our Base64 converter uses TextEncoder and TextDecoder for safe Unicode handling.</p>
-        <p><a href="/tools/base64-converter/" class="btn btn-primary">Open Base64 Converter</a></p>
+        <p><a href="../../tools/base64-converter/" class="btn btn-primary">Open Base64 Converter</a></p>
 
         <h2>Best Practices</h2>
         <p>Use Base64 for embedding small assets, not large files. Large Base64 strings bloat HTML and reduce caching efficiency. For large files, stick to regular URLs or binary protocols. Also, always validate and sanitize Base64 input to prevent injection attacks.</p>
@@ -65,6 +64,6 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="/assets/js/components.js"></script>
+  <script src="../../assets/js/components.js"></script>
 </body>
 </html>
