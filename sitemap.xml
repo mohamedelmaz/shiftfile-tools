@@ -26,4 +26,10 @@
   <url><loc>https://shiftfile.tools/contact/</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://shiftfile.tools/privacy-policy/</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://shiftfile.tools/terms/</loc><lastmod>2026-08-10</lastmod></url>
+    <url>
+        <loc>https://shiftfile.tools/donate/</loc>
+        <lastmod>2026-08-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>

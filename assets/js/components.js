@@ -73,6 +73,7 @@
     </div>
     <div class="footer-bottom">
       <p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p>
+      <p style="margin-top:8px;"><a href="/donate/">❤️ Support us</a></p>
       <p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p>
     </div>
   </div>
