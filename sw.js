@@ -6,7 +6,7 @@ function getBasePath() {
   var path = self.location.pathname;
   var segments = path.split('/').filter(Boolean);
   if (segments.length <= 1) return './';
-  var firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms', 'donate'];
+  var firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms'];
   var baseSegments = 0;
   if (firstLevel.indexOf(segments[1]) !== -1) {
     baseSegments = 1;

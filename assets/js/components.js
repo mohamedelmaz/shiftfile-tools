@@ -74,7 +74,6 @@
     </div>
     <div class="footer-bottom">
       <p>🔒 Runs 100% in your browser — your files never leave your device. Free forever · Unlimited · No watermarks.</p>
-      <p style="margin-top:8px;"><a href="/donate/">❤️ Support us</a></p>
       <p style="margin-top:8px;">© 2026 ShiftFile Tools — <a href="https://shiftfile.tools">https://shiftfile.tools</a> — All rights reserved.</p>
     </div>
   </div>
@@ -126,7 +125,7 @@
     const path = window.location.pathname;
     const segments = path.split('/').filter(Boolean);
     if (segments.length <= 1) return './';
-    const firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms', 'donate'];
+    const firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms'];
     let baseSegments = 0;
     if (firstLevel.indexOf(segments[1]) !== -1) {
       baseSegments = 1;
