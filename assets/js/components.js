@@ -125,9 +125,10 @@
   function getRelPrefix() {
     const path = window.location.pathname;
     const segments = path.split('/').filter(Boolean);
-    const firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms'];
+    if (segments.length <= 1) return './';
+    const firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms', 'donate'];
     let baseSegments = 0;
-    if (segments.length >= 2 && firstLevel.indexOf(segments[1]) !== -1) {
+    if (firstLevel.indexOf(segments[1]) !== -1) {
       baseSegments = 1;
     }
     const depth = segments.length - baseSegments;
