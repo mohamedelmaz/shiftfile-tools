@@ -18,103 +18,6 @@
   <meta property="og:url" content="https://shiftfile.tools/donate/">
   <meta property="og:image" content="https://shiftfile.tools/assets/img/og-cover.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <style>
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      padding: 20px;
-    }
-    .modal.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .modal-content {
-      background: var(--sf-surface, #ffffff);
-      border: 1px solid var(--sf-border, #e2e8f0);
-      border-radius: var(--sf-radius, 12px);
-      padding: 32px;
-      max-width: 480px;
-      width: 100%;
-      position: relative;
-      box-shadow: var(--sf-shadow-lg, 0 10px 25px -5px rgba(0,0,0,0.1));
-      transform: translateY(-20px);
-      transition: transform 0.3s ease;
-    }
-    .modal.show .modal-content {
-      transform: translateY(0);
-    }
-    .modal-close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: var(--sf-text-secondary, #475569);
-      cursor: pointer;
-      line-height: 1;
-      padding: 0;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-    }
-    .modal-close:hover {
-      background: var(--sf-primary-soft, rgba(16,185,129,0.12));
-      color: var(--sf-primary, #10b981);
-    }
-    .modal-body {
-      text-align: center;
-    }
-    .modal-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
-    }
-    .modal-body h2 {
-      margin-bottom: 12px;
-      color: var(--sf-text, #0f172a);
-      font-size: 1.5rem;
-    }
-    .modal-body p {
-      color: var(--sf-text-secondary, #475569);
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-    .modal-body hr {
-      border: none;
-      border-top: 1px solid var(--sf-border, #e2e8f0);
-      margin: 16px 0;
-    }
-    .modal-note {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-    .modal-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .modal-actions .btn {
-      width: 100%;
-      justify-content: center;
-    }
-    @media (max-width: 480px) {
-      .modal-content {
-        padding: 24px 20px;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- © 2026 ShiftFile Tools — https://shiftfile.tools — All rights reserved. -->
@@ -129,75 +32,13 @@
 
     <section class="section">
       <div class="container text-center">
-        <button class="btn btn-primary btn-lg donate-trigger" type="button">
-          ☕ Donate via PayPal
-        </button>
-        <p style="margin-top: 16px; color: var(--sf-text-secondary);">Every donation helps keep the servers running and the tools free. Thank you! 💙</p>
-        <p style="margin-top: 8px; color: var(--sf-text-secondary);">
-          <a href="https://www.buymeacoffee.com/placeholder" target="_blank" rel="noopener noreferrer">☕ Buy Me a Coffee</a> (optional)
-        </p>
+        <p style="margin-top: 16px; color: var(--sf-text-secondary);">Thank you for your interest in supporting ShiftFile Tools. Every contribution helps keep our tools free, private, and open-source for everyone.</p>
+        <p style="margin-top: 8px; color: var(--sf-text-secondary);">For donation inquiries, please contact us at <a href="mailto:hello@shiftfile.tools">hello@shiftfile.tools</a>.</p>
       </div>
     </section>
   </main>
 
   <div id="site-footer"></div>
-
-  <!-- Donation confirmation modal -->
-  <div id="donateConfirmModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
-      <div class="modal-body">
-        <div class="modal-icon" aria-hidden="true">💖</div>
-        <h2 id="modalTitle">Thank you for your support</h2>
-        <p>Your donation helps keep ShiftFile Tools free, private, and open-source for everyone.</p>
-        <p><strong>You are supporting privacy-first, offline-capable tools that run entirely in your browser.</strong></p>
-        <hr>
-        <p class="modal-note">You will be redirected to PayPal to complete your secure donation.</p>
-        <div class="modal-actions">
-          <a href="https://www.paypal.com/donate/?business=elmazounimohamed1983@gmail.com&no_recurring=0&currency_code=USD"
-             class="btn btn-primary"
-             target="_blank"
-             rel="noopener noreferrer">
-            Proceed to PayPal
-          </a>
-          <button onclick="closeModal()" class="btn btn-secondary">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function openModal() {
-      document.getElementById('donateConfirmModal').classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('donateConfirmModal').classList.remove('show');
-      document.body.style.overflow = '';
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var donateBtn = document.querySelector('.donate-trigger');
-      if (donateBtn) {
-        donateBtn.addEventListener('click', function (e) {
-          e.preventDefault();
-          openModal();
-        });
-      }
-
-      var modal = document.getElementById('donateConfirmModal');
-      if (modal) {
-        modal.addEventListener('click', function (e) {
-          if (e.target === modal) closeModal();
-        });
-      }
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
-      });
-    });
-  </script>
   <script src="../assets/js/components.js"></script>
 </body>
 </html>
