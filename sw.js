@@ -5,7 +5,7 @@ var CACHE_NAME = 'shiftfile-tools-v1';
 function getBasePath() {
   var path = self.location.pathname;
   var segments = path.split('/').filter(Boolean);
-  var firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms'];
+  var firstLevel = ['tools', 'guides', 'about', 'contact', 'developers', 'privacy-policy', 'terms', 'donate'];
   var baseSegments = 0;
   if (segments.length >= 2 && firstLevel.indexOf(segments[1]) !== -1) {
     baseSegments = 1;
